@@ -1,0 +1,120 @@
+/* styles.css */
+
+/* Estilo do Menu */
+nav {
+  background-color: #063df1;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Estilo da tela de Lista de Convidados e Orçamento */
+.container {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: #063df1;
+  color: white;
+}
+
+button {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: darkred;
+}
+
+/* Estilo de texto e totalizadores */
+#totalGuests, #totalPlanned, #totalSpent {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#guestListPage, #budgetPage {
+  display: none; /* Oculta inicialmente */
+}
+
+#plannedAmountContainer,
+#adjustAmountContainer {
+  margin-bottom: 20px;
+}
+
+#expensesContainer {
+  margin-top: 20px;
+}
+
+/* Estilo para os campos de formulário */
+input[type="text"], input[type="number"] {
+  padding: 8px;
+  margin: 5px 0;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+  outline: none;
+  border-color: #063df1;
+}
+
+/* Botão para ajustar valor planejado */
+#adjustAmountContainer button {
+  background-color: #063df1;
+}
+
+#adjustAmountContainer button:hover {
+  background-color: #042a8e;
+}
+
+/* Estilo para a área de impressão */
+#guestListPage button#printButton {
+  background-color: #28a745;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#guestListPage button#printButton:hover {
+  background-color: #218838;
+}
+

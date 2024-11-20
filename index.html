@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos Show</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Menu -->
+  <nav>
+    <ul>
+      <li><a href="#" id="guestListMenu">Lista de Convidados</a></li>
+      <li><a href="#" id="budgetMenu">Orçamento</a></li>
+    </ul>
+  </nav>
+
+  <!-- Tela Lista de Convidados -->
+  <div class="container" id="guestListPage" style="display: none;">
+    <h1>Lista de Convidados</h1>
+    <form id="guestForm">
+      <input type="text" id="name" placeholder="Nome do Convidado" required>
+      <button type="submit">Adicionar Convidado</button>
+      <button type="button" id="printButton">Imprimir Lista</button>
+    </form>
+    <p id="totalGuests">Total de Convidados: 0</p>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="guestList">
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tela Orçamento -->
+  <div class="container" id="budgetPage" style="display: none;">
+    <h1>Orçamento</h1>
+    
+    <!-- Campo Valor Planejado (após inserido, ficará não editável) -->
+    <div id="plannedAmountContainer">
+      <label for="plannedAmount">Valor Planejado:</label>
+      <input type="number" id="plannedAmount" placeholder="Digite o valor total previsto" required>
+      <button type="button" id="setPlannedAmountButton">Definir Valor Planejado</button>
+    </div>
+
+    <!-- Botão de Ajuste (aparece após definir o valor planejado) -->
+    <div id="adjustAmountContainer" style="display: none;">
+      <button type="button" id="adjustPlannedAmountButton">Ajustar Valor Planejado</button>
+    </div>
+
+    <!-- Exibição dos Campos de Gasto após o valor planejado ser inserido -->
+    <div id="expensesContainer" style="display: none;">
+      <label for="expenseDescription">Descrição do Gasto:</label>
+      <input type="text" id="expenseDescription" placeholder="Descrição do gasto" required>
+      <label for="expenseValue">Valor:</label>
+      <input type="number" id="expenseValue" placeholder="Valor do gasto" required>
+      <button type="button" id="addExpenseButton">Adicionar Gasto</button>
+    </div>
+    
+    <p id="totalPlanned">Total Planejado: R$ 0</p>
+    <p id="totalSpent">Total Gasto: R$ 0</p>
+    <p id="balance">Saldo: R$ 0</p> <!-- Novo campo para o Saldo -->
+    
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Descrição</th>
+          <th>Valor</th>
+          <th>Ações</th> <!-- Coluna para Ações -->
+        </tr>
+      </thead>
+      <tbody id="expenseList"></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
