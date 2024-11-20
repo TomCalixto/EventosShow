@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener("DOMContentLoaded", () => {
     const guestForm = document.getElementById("guestForm");
     const guestList = document.getElementById("guestList");
@@ -68,6 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 <td>${index + 1}</td>
                 <td>${expense.description}</td>
                 <td>R$ ${expense.value.toFixed(2)}</td>
+                <td>
+                    <button class="edit-btn" data-index="${index}">Editar</button>
+                    <button class="delete-expense-btn" data-index="${index}">Excluir</button>
+                </td>
             `;
             expenseList.appendChild(row);
 
@@ -80,6 +83,40 @@ document.addEventListener("DOMContentLoaded", () => {
         // Calcular e exibir o saldo (Planejado - Gasto)
         const saldo = plannedAmount - totalExpense;
         balance.textContent = `Saldo: R$ ${saldo.toFixed(2)}`;
+
+        // Adicionar eventos de edição e exclusão
+        document.querySelectorAll(".edit-btn").forEach((button) => {
+            button.addEventListener("click", (event) => {
+                const index = event.target.getAttribute("data-index");
+                editExpense(index);
+            });
+        });
+
+        document.querySelectorAll(".delete-expense-btn").forEach((button) => {
+            button.addEventListener("click", (event) => {
+                const index = event.target.getAttribute("data-index");
+                deleteExpense(index);
+            });
+        });
+    }
+
+    // Função para editar uma despesa
+    function editExpense(index) {
+        const expense = expenses[index];
+        expenseDescriptionInput.value = expense.description;
+        expenseValueInput.value = expense.value;
+
+        // Remover a despesa para atualização
+        expenses.splice(index, 1);
+        saveExpenses();
+        renderExpenseList();
+    }
+
+    // Função para excluir uma despesa
+    function deleteExpense(index) {
+        expenses.splice(index, 1);
+        saveExpenses();
+        renderExpenseList();
     }
 
     // Função para definir o valor planejado
